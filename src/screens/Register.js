@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/authContext";
 
 function Register() {
   const navigate = useNavigate();
 
-  const { success, loading, authRegister } = useContext(AuthContext);
+  const { success, loading, authRegister, } = useContext(AuthContext);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -23,14 +24,16 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form linear-gradient(rgba(0,0,0,0.4)">
-      <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-3 p-3 bg-success">
+    <>
+
+    <form onSubmit={handleSubmit} className="form">
+      <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mx-auto p-3 bg-dark">
         <div className="form-group m-2">
           <label htmlFor="username">username</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter username"
+            placeholder="Enter full name"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
@@ -55,15 +58,15 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary m-2">
-          {loading ? "Loading..." : "Register"}
+        <button type="submit" className="btn btn-info m-2"> {loading ? "Loading..." : "Register"}
         </button>
         <div className="row">
           I already have an account
-          <Link to="/login" className="nav-link">Login</Link>
+          <Link to="/" className="nav-link">Login</Link>
         </div>
       </div>
     </form>
+    </>
   );
 }
 

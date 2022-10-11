@@ -11,23 +11,25 @@ function AuthContextProvider({ children }) {
 
   //login function
   const authLogin = async (email, password) => {
+    console.log(email, password);
     setLoading(true);
-    await fetch("/api/users/login", {
+    await fetch("https://clumsy-belt-hen.cyclic.app/api/users/login", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+    headers:{
+      'Content-Type':"application/json"  },
+      body:JSON.stringify({
+        email:email,
+        password:password
+      })
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("New user :", user);
         setSuccess(true);
         setUser(data);
       })
       .catch((err) => {
+        console.log("auth error : ", err);
         setError(err);
       });
     setLoading(false);
@@ -36,15 +38,16 @@ function AuthContextProvider({ children }) {
   //signup function
   const authRegister = async (username, email, password) => {
     setLoading(true);
-    await fetch("/api/users/register", {
+    // console.log(username, email, password);
+    await fetch("https://clumsy-belt-hen.cyclic.app/api/users/register", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': "application/json",
       },
       body: JSON.stringify({
-        username,
-        email,
-        password,
+        username:username,
+        email:email,
+        password:password,
       }),
     })
       .then((res) => res.json())
@@ -65,7 +68,6 @@ function AuthContextProvider({ children }) {
 
   return (
     <AuthProvider
-      AuthProvider
       value={{
         success,
         error,

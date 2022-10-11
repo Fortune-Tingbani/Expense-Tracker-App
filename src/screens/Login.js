@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../context/authContext";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -22,8 +24,9 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form align-form-center">
-      <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-3 p-3 w-5 bg-success">
+    <>
+    <form onSubmit={handleSubmit} className="form">
+      <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mx-auto p-3 bg-dark">
         <div className="form-group m-2 w-10 h-5">
           <label htmlFor="email">email</label>
           <input
@@ -44,7 +47,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="btn btn-primary m-2">
+        <button type="submit" className="btn btn-info m-1">
           {loading ? "Loading..." : "Login"}
         </button>
         <div>
@@ -55,7 +58,11 @@ function Login() {
         </div>
       </div>
     </form>
+    </>
   );
-}
+};
+
 
 export default Login;
+
+

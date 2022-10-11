@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/authContext";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -22,6 +24,8 @@ function Login() {
   };
 
   return (
+    <>
+    <Navbar/>
     <form onSubmit={handleSubmit} className="form align-form-center">
       <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 m-3 p-3 w-5 bg-dark">
         <div className="form-group m-2 w-10 h-5">
@@ -55,7 +59,11 @@ function Login() {
         </div>
       </div>
     </form>
+    </>
   );
-}
+};
+
 
 export default Login;
+
+

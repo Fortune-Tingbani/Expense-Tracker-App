@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext} from 'react'
+
+import {AuthContext} from '../context/authContext'
+import { FaSignOutAlt} from "react-icons/fa"
 
 function Navbar() {
+  
+    const { authLogout} = useContext(AuthContext)
+
+    // useEffect(() => {
+    //     if (!user) {
+    //         navigate("/login");
+    //     }
+    // }, [user]);
+
   return (
     
-    <div>
+    <div className='fort'>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
   <div class="container-fluid">
     <a class="navbar-brand" href="/">logo</a>
@@ -23,6 +35,11 @@ function Navbar() {
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" type="button"
+            onClick={() => authLogout()}
+        href="/"><FaSignOutAlt/></a>
+    </li>
         </ul>
     </div>
   </div>

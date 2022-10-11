@@ -5,7 +5,7 @@ import Balance from "../components/Balance";
 import IncomeExpense from "../components/IncomeExpense";
 import TransactionList from "../components/TransactionList";
 import AddTransaction from "../components/AddTransaction";
-import Navbar from "../components/Navbar";
+//import Navbar from "../components/Navbar";
 
 import { GlobalProvider } from "../context/GlobalState";
 
@@ -15,7 +15,6 @@ function Home() {
   console.log(user);
   return (
     <>
-    <Navbar />
     <div >
     <GlobalProvider>
         <Balance />

@@ -159,12 +159,15 @@ input[type='number'] {
   opacity: 1;
 }
 .form{
-  width: 200vh;
+  width: 100vw;
   position: relative;
   margin: 6% auto;
   padding: 5px;
   
 }
 
-
+.navbar-dark{
+  margin: 10px 10px;
+  background-color: #2ecc71;
+}
 

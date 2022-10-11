@@ -9,9 +9,11 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
+    <Navbar/>
+
       <div className="container">
         <Routes>
-        <Route path="/" element={<Navbar />} />
+        <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
